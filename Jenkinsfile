@@ -10,21 +10,22 @@ pipeline {
                     	   doGenerateSubmoduleConfigurations: false,
                     	   extensions: [],
                      	   submoduleCfg: [],
-                    	   userRemoteConfigs: [[url: 'https://github.com/ganeshhp/Maven-petclinic-project.git']]])
+                    	   userRemoteConfigs: [[url: 'https://github.com/deshshank/Maven-petclinic-project.git']]])
             }
         }
-     stage('code-validation') {
-         agent { label "master" }
+Parallel {       
+        stage('code-validation') {
+        agent { label "master" }
 	steps {
                        sh 'mvn -f pom.xml sonar:sonar'
             }
         }
      stage('Test and package'){
           agent { label "master" }
-	steps {
+	     steps {
                       sh 'mvn -f pom.xml package'
             }
         }
-
-}
+     }
+  }
 }
