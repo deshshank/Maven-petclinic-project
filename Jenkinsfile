@@ -1,4 +1,3 @@
-/*new declarative syntax used
 pipeline {
  agent none
     stages {
@@ -11,18 +10,6 @@ pipeline {
                 extensions: [], submoduleCfg: [], 
                 userRemoteConfigs: [[url: 'https://github.com/KhanSahab/Maven-petclinic-project-1.git']]])
             }
-        }
-parallel {
-     stage('code-validation') {
-         agent { label "master" }
-	steps {
-                       sh 'mvn -f pom.xml sonar:sonar'
-            }
-        }
-     stage('Test and package') {
-          agent { label "master" }
-	steps {
-                      sh 'mvn -f pom.xml package'
         }
       }
     }
