@@ -9,7 +9,7 @@ pipeline {
                 branches: [[name: '*/master']], 
                 doGenerateSubmoduleConfigurations: false, 
                 extensions: [], submoduleCfg: [], 
-                userRemoteConfigs: [[url: 'https://github.com/ganeshhp/Maven-petclinic-project.git']]])
+                userRemoteConfigs: [[url: 'https://github.com/KhanSahab/Maven-petclinic-project-1.git']]])
             }
         }
 parallel {
