@@ -17,13 +17,13 @@ pipeline {
         stage('code-validation') {
         agent { label "master" }
 	steps {
-                       sh 'mvn -f pom.xml sonar:sonar'
+                       bat 'mvn -f pom.xml sonar:sonar'
             }
         }
      stage('Test and package'){
           agent { label "master" }
 	     steps {
-                      sh 'mvn -f pom.xml package'
+                      bat 'mvn -f pom.xml package'
             }
         }
      
