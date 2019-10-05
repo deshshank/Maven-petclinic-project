@@ -14,12 +14,12 @@ pipeline {
             }
         }
        
-        stage('code-validation') {
-        agent { label "master" }
-	steps {
+     //   stage('code-validation') {
+     //   agent { label "master" }
+//	steps {
      //                  bat 'mvn -f pom.xml sonar:sonar'
-            }
-        }
+  //          }
+   //     }
      stage('Test and package'){
           agent { label "master" }
 	     steps {
