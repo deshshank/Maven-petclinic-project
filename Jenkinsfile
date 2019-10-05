@@ -1,4 +1,4 @@
-/*new declarative syntax used
+
 pipeline {
  agent none
     stages {
@@ -6,14 +6,14 @@ pipeline {
           agent { label "master" }
 	steps {
 	                checkout([$class: 'GitSCM',
-                	    branches: [[name: '*/master']],
+                	   branches: [[name: '*/master']],
                     	   doGenerateSubmoduleConfigurations: false,
                     	   extensions: [],
                      	   submoduleCfg: [],
                     	   userRemoteConfigs: [[url: 'https://github.com/deshshank/Maven-petclinic-project.git']]])
             }
         }
-Parallel {       
+       
         stage('code-validation') {
         agent { label "master" }
 	steps {
@@ -26,6 +26,6 @@ Parallel {
                       sh 'mvn -f pom.xml package'
             }
         }
-     }
+     
   }
 }
